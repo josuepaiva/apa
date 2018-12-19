@@ -1,6 +1,6 @@
 #include "quicksort.h"
 
-QuickSort::QuickSort(int ar[], bool valor, int size) {
+QuickSort::QuickSort(std::vector<int> ar, bool valor, int size) {
 	this->size = size;
 	this->bruto = new int [size];
 
@@ -57,7 +57,7 @@ int QuickSort::dividir(int arr[], int baixo, int alto) {
 void QuickSort::exibe() {
 	std::cout<<"Array bruto"<<std::endl;
 	for(int i = 0; i < size; i++) {
-		std::cout<<this->bruto[i];
+		std::cout<<" "<<this->bruto[i];
 	}
 	std::cout<<"\n";
 }

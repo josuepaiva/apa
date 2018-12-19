@@ -1,20 +1,34 @@
 #include <iostream>
 #include "quicksort.h"
+#include "mergesort.h"
+#include "parserfile.h"
 
 int main(int argc, char *argv[]) {
-	int arr[] = {2,4,7,-2,50};
 
-	QuickSort quicksort = QuickSort(arr, true, 5);
-	quicksort.exibe();
+	if(argc <= 2) {
+		std::cout<<"Example: ./main -pathfile pasta/example.txt"<<std::endl;
+		return 0;
+	}
+
+	ParserFile file = ParserFile(argv[2]);
+
+	MergeSort mergesort = MergeSort(file.dados, true, file.dados.size());
+	QuickSort quicksort = QuickSort(file.dados, true, file.dados.size());			
 
 	int opcao;
 	std::cout<<"Digite o número correspondente ao algoritmo"<<std::endl;
+	std::cout<<"-------------------------"<<std::endl;
+	std::cout<<"1 - MergeSort"<<std::endl;
+	std::cout<<"2 - QuickSort"<<std::endl;
+	std::cout<<"-------------------------"<<std::endl;
+
 
 	std::cin>>opcao;
 
 	switch(opcao) {
 		case 1:
-			std::cout<<"Voce escolheu o merge sort"<<std::endl;
+			std::cout<<"Voce escolheu o mergesort"<<std::endl;
+			mergesort.ordenar();
 			break;
 		case 2:
 			std::cout<<"Voce escolheu o quicksort"<<std::endl;
