@@ -12,7 +12,7 @@ QuickSort::QuickSort(int ar[], bool valor, int size) {
 }
 
 QuickSort::~QuickSort() {
-	delete this->bruto;
+	delete []bruto;
 }
 
 void QuickSort::ordenar() {
